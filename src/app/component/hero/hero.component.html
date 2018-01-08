@@ -1,0 +1,24 @@
+<div class="mt-4" >
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <td>Index</td>
+      <td>Name</td>
+      <td>Element</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hero of heros; let i = index" (click)="selectHero(hero, i)">
+      <td>{{i}}</td>
+      <td>{{hero.name}}</td>
+      <td>{{hero.element}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+  <div class="hero-detail" *ngIf="selectedHero && heros.indexOf(selectedHero) > -1">
+    <app-hero-detail [heroIndex] = "indexSelectedHero"></app-hero-detail>
+  </div>
+
+
+
