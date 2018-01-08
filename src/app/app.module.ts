@@ -5,8 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { DropdownDirective } from './dropdown.directive';
-import { ClearDropdownDirective } from './clear-dropdown.directive';
-import {DropdownComponent} from "./component/dropdown-pattern/dropdown.component";
+import {DropdownComponent} from './component/dropdown-pattern/dropdown.component';
+import {ClickOutsideDirective} from './component/dropdown-pattern/click-outside.directive';
 
 
 @NgModule({
@@ -14,8 +14,8 @@ import {DropdownComponent} from "./component/dropdown-pattern/dropdown.component
     AppComponent,
     HeaderComponent,
     DropdownDirective,
-    ClearDropdownDirective,
-    DropdownComponent
+    DropdownComponent,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule
