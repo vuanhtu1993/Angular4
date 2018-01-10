@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BookService} from '../../book.service';
+import {CounterService} from '../../counter.service';
 
 @Component({
   selector: 'app-active-book',
@@ -9,7 +10,8 @@ import {BookService} from '../../book.service';
 export class ActiveBookComponent implements OnInit {
   booksActive;
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService,
+              private counterService: CounterService) {
     this.getBook();
   }
 

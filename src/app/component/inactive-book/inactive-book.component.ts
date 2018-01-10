@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BookService} from '../../book.service';
+import {CounterService} from "../../counter.service";
 
 @Component({
   selector: 'app-inactive-book',
@@ -9,7 +10,8 @@ import {BookService} from '../../book.service';
 export class InactiveBookComponent implements OnInit {
   booksInActive;
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService,
+              private counterService: CounterService) {
     this.getBook();
   }
 

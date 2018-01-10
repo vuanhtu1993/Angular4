@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ActiveBookComponent } from './component/active-book/active-book.component';
 import { InactiveBookComponent } from './component/inactive-book/inactive-book.component';
+import {CounterService} from './counter.service';
+import {LoggingService} from './logging.service';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { InactiveBookComponent } from './component/inactive-book/inactive-book.c
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [CounterService,
+  LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

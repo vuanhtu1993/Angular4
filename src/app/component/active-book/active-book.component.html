@@ -1,5 +1,6 @@
 <div class="card card-block active-book">
   <h4>List Book Active</h4>
+  <p><em>Active times: {{counterService.actionActive}}</em></p>
   <div class="row mt-2" *ngFor="let book of booksActive">
     <div class="col-sm-8">
       <div class="px-2">{{book.name}}</div>
