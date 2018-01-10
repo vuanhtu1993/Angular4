@@ -7,6 +7,7 @@ import { HeroComponent } from './component/hero/hero.component';
 import { HeaderComponent } from './component/header/header.component';
 import { AddHeroComponent } from './component/add-hero/add-hero.component';
 import { HeroDetailComponent } from './component/hero/hero-detail/hero-detail.component';
+import {MessageService} from "./message.service";
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { HeroDetailComponent } from './component/hero/hero-detail/hero-detail.co
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
