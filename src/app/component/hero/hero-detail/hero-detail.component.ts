@@ -6,21 +6,28 @@ import {HeroService} from '../../../hero.service';
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css']
 })
-export class HeroDetailComponent implements OnInit , OnChanges{
+export class HeroDetailComponent implements OnInit, OnChanges {
   @Input() heroIndex;
   selectedHero;
   heroes;
-  constructor(private hero: HeroService) {
-    this.heroes = hero.getHeroes();
+
+  constructor(private heroService: HeroService) {
+    this.getHero();
+  }
+
+  getHero() {
+    this.heroes = this.heroService.getHeroes();
   }
 
   ngOnInit() {
   }
+
   ngOnChanges() {
     this.selectedHero = this.heroes[this.heroIndex];
-    // console.log(this.selectedHero, this.heroIndex);
   }
+
   onClickDel() {
-    this.hero.deleteHero(this.heroIndex);
+    this.heroService.deleteHero(this.heroIndex);
+    this.heroService.Emitter.emit();
   }
 }

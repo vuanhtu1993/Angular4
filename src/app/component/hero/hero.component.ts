@@ -10,14 +10,23 @@ export class HeroComponent implements OnInit {
   heroes;
   selectedHero;
   indexSelectedHero;
-  constructor(private hero: HeroService) {
-    this.heroes = hero.getHeroes();
+
+  constructor(private heroService: HeroService) {
   }
+
+  getHero() {
+    this.heroes = this.heroService.getHeroes();
+  }
+
   ngOnInit() {
+    this.getHero();
+    this.heroService.Emitter.subscribe(() => {
+      this.getHero();
+    });
   }
+
   selectHero(hero, i) {
     this.selectedHero = hero;
     this.indexSelectedHero = i;
-    console.log(this.heroes.indexOf(this.selectedHero));
   }
 }

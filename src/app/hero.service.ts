@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Hero} from './hero';
 import {ARRAYHERO} from './mock-hero';
 import {Observable} from 'rxjs/Observable';
@@ -6,14 +6,13 @@ import {of} from 'rxjs/observable/of';
 
 @Injectable()
 export class HeroService {
-
-
   constructor() {
-    console.log(ARRAYHERO);
   }
 
-  getHeroes(): Hero[] {
-    return ARRAYHERO;
+  Emitter = new EventEmitter();
+
+  getHeroes(): Observable<Hero[]> {
+    return of(ARRAYHERO);
   }
 
   addHero(hero: Hero) {
