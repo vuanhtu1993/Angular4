@@ -7,18 +7,17 @@ import {HeroService} from '../../hero.service';
   styleUrls: ['./hero.component.css']
 })
 export class HeroComponent implements OnInit {
-  heros;
+  heroes;
   selectedHero;
   indexSelectedHero;
-  constructor(hero: HeroService) {
-    this.heros = hero.arrayHero;
+  constructor(private hero: HeroService) {
+    this.heroes = hero.getHeroes();
   }
-
   ngOnInit() {
   }
   selectHero(hero, i) {
     this.selectedHero = hero;
     this.indexSelectedHero = i;
-    console.log(this.heros.indexOf(this.selectedHero));
+    console.log(this.heroes.indexOf(this.selectedHero));
   }
 }

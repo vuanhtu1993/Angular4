@@ -1,26 +1,26 @@
 import {Injectable} from '@angular/core';
 import {Hero} from './hero';
+import {ARRAYHERO} from './mock-hero';
+import {Observable} from 'rxjs/Observable';
+import {of} from 'rxjs/observable/of';
 
 @Injectable()
 export class HeroService {
-  arrayHero: Hero[] = [
-    // new Hero('red', 'He is the team leader of super men', 'fire'),
-    // new Hero('green', 'He is represent for nature', 'plant'),
-    // new Hero('gray', 'He is combination between men and wolf', 'plant'),
-    {name: 'red', description: 'He is the team leader of super men', element: 'fire'},
-    {name: 'green', description: 'He is represent for nature', element: 'plant'},
-    {name: 'gray', description: 'He is combination between men and wolf', element: 'rock'},
-  ];
+
 
   constructor() {
+    console.log(ARRAYHERO);
+  }
+
+  getHeroes(): Hero[] {
+    return ARRAYHERO;
   }
 
   addHero(hero: Hero) {
-    this.arrayHero.push(hero);
+    ARRAYHERO.push(hero);
   }
 
   deleteHero(index) {
-    console.log(index);
-    this.arrayHero.splice(index, 1);
+    ARRAYHERO.splice(index, 1);
   }
 }

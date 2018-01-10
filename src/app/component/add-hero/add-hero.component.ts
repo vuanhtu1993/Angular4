@@ -21,5 +21,8 @@ export class AddHeroComponent implements OnInit {
     this.addedHero.element = element.value;
     this.addedHero.description = description.value;
     this.hero.addHero(this.addedHero);
+    name.value = '';
+    element.value = '';
+    description.value = '';
   }
 }
