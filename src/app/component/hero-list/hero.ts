@@ -1,8 +1,9 @@
-export class Hero {
-  constructor(id: number,
-              name: string,
-              role: string,
-              description: string) {
+ class Hero {
+   id: number;
+   name: string;
+   role: string;
+   description: string;
+  constructor() {
   }
 }
 
