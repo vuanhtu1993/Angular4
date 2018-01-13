@@ -5,13 +5,16 @@ import {CrisisListComponent} from '../component/crisis-list/crisis-list.componen
 import {NotFoundComponent} from '../component/not-found/not-found.component';
 import {HomeComponent} from '../component/home/home.component';
 import {HeroDetailComponent} from '../component/hero-list/hero-detail/hero-detail.component';
+import {CrisisDetailComponent} from '../component/crisis-list/crisis-detail/crisis-detail.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'hero-list', component: HeroListComponent, children: [
     {path: ':id', component: HeroDetailComponent}
   ]},
-  {path: 'crisis-list', component: CrisisListComponent},
+  {path: 'crisis-list', component: CrisisListComponent, children: [
+    {path: ':id', component: CrisisDetailComponent}
+  ]},
   {path: '**', component: NotFoundComponent},
 ];
 @NgModule({

@@ -4,6 +4,15 @@ import {CRISIS, Crisis} from './crisis';
 @Injectable()
 export class CrisisService {
   constructor() {
-    console.log(CRISIS);
+  }
+
+  getCrisises() {
+    return CRISIS;
+  }
+
+  getCrisis(id) {
+    return CRISIS.find((crisis) => {
+      return crisis.id === id;
+    });
   }
 }

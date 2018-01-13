@@ -1,0 +1,11 @@
+<div class="card card-block">
+  <div class="card-header">
+    <h3>Name: {{crisis.name}}</h3>
+    <input type="text" [(ngModel)]="crisis.name">
+  </div>
+  <h5 class="mt-2"><b>{{crisis.name}}</b></h5>
+  <div class="row justify-content-end">
+    <button class="btn btn-secondary btn-sm mr-2" (click)="onClickUpdate()">Update</button>
+    <a routerLink="/hero-list" class="btn btn-danger btn-sm mr-4">Back</a>
+  </div>
+</div>

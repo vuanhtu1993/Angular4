@@ -1,3 +1,21 @@
-<p>
-  crisis-list works!
-</p>
+<div class="row">
+  <div class="col-sm-6">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let crisis of crisises">
+        <td>{{crisis.id}}</td>
+        <td><a routerLink="{{crisis.id}}">{{crisis.name}}</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>
