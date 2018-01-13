@@ -6,7 +6,17 @@
       Welcome to {{ title }}!
     </h1>
   </div>
-
-
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" routerLink="hero-list">Hero list</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="crisis-list">Crisis list</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">About</a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
 </div>
 
