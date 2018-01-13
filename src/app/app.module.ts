@@ -8,6 +8,7 @@ import { CrisisListComponent } from './component/crisis-list/crisis-list.compone
 import { AppRoutingModule} from './app-routing/app-routing.module';
 import { NotFoundComponent } from './component/not-found/not-found.component';
 import { HeroModule } from './component/hero-list/hero.module';
+import { HomeComponent } from './component/home/home.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HeroModule } from './component/hero-list/hero.module';
     AppComponent,
     HeaderComponent,
     CrisisListComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

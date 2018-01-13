@@ -3,10 +3,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {HeroListComponent} from '../component/hero-list/hero-list.component';
 import {CrisisListComponent} from '../component/crisis-list/crisis-list.component';
 import {NotFoundComponent} from '../component/not-found/not-found.component';
+import {HomeComponent} from '../component/home/home.component';
+import {HeroDetailComponent} from '../component/hero-list/hero-detail/hero-detail.component';
 
 const routes: Routes = [
-  {path: '', component: HeroListComponent},
-  {path: 'hero-list', component: HeroListComponent},
+  {path: '', component: HomeComponent},
+  {path: 'hero-list', component: HeroListComponent, children: [
+    {path: ':id', component: HeroDetailComponent}
+  ]},
   {path: 'crisis-list', component: CrisisListComponent},
   {path: '**', component: NotFoundComponent},
 ];

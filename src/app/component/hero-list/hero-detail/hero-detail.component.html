@@ -1,3 +1,17 @@
-<p>
-  hero-detail works!
-</p>
+<div class="card card-block">
+  <div class="card-header">
+    <h3>Name: {{hero.name}}</h3>
+    <div *ngIf="isEdit === 'true'">
+      <input class="form-control" type="text" [(ngModel)]="name">
+    </div>
+    <div *ngIf="isEdit === 'false'">
+      <input class="form-control" type="text" [(ngModel)]="name" disabled>
+    </div>
+  </div>
+  <h5 class="mt-2"><b>{{hero.role}}</b></h5>
+  <p><em>{{hero.description}}</em></p>
+  <div class="row justify-content-end">
+    <button class="btn btn-secondary btn-sm mr-2" (click)="onClickUpdate(hero.id, name)">Update</button>
+    <a routerLink="/hero-list" class="btn btn-danger btn-sm mr-4">Back</a>
+  </div>
+</div>
