@@ -11,6 +11,8 @@ import {HomeComponent} from './component/home/home.component';
 import {CrisisModule} from './component/crisis-list/crisis.module';
 import {AdminModule} from './admin/admin.module';
 import {AdminRoutingModule} from './admin/admin-routing.module';
+import { LoginComponent } from './component/login/login.component';
+import {LoginRoutingModule} from './component/login/login-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,11 @@ import {AdminRoutingModule} from './admin/admin-routing.module';
     HeaderComponent,
     NotFoundComponent,
     HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
+    LoginRoutingModule,
     AdminRoutingModule,
     AppRoutingModule,
     HeroModule,
