@@ -14,7 +14,7 @@ export class ImageComponent implements OnInit {
   }
 
   urlImage;
-  index = 0;
+  index = -1;
 
   ngOnInit() {
     this.loadImage.emit.subscribe((index) => {
@@ -26,7 +26,7 @@ export class ImageComponent implements OnInit {
   }
 
   onClickLoadNext() {
-    if (0 <= this.index && this.index <= 2) {
+    if (-1 <= this.index && this.index <= 2) {
       this.index++;
       this.loadImage.emit.emit(this.index);
       console.log(this.index);

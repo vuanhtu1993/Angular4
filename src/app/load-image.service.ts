@@ -4,7 +4,6 @@ import {of} from 'rxjs/observable/of';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/from';
-import index from "@angular/cli/lib/cli";
 
 declare const $;
 
@@ -20,7 +19,7 @@ export class LoadImageService {
   }
   emit = new EventEmitter();
   loadImage(_index): Observable<Image> {
-    return Observable.of(this.arrayImage[_index]);
+    return Observable.of(this.arrayImage[_index]).delay(500);
   }
 }
 
