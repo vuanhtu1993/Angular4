@@ -3,6 +3,8 @@ import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/from';
+import index from "@angular/cli/lib/cli";
 
 declare const $;
 
@@ -14,14 +16,14 @@ export class LoadImageService {
     {id: 3, url: 'https://i.ytimg.com/vi/czhDhxFfZsM/maxresdefault.jpg'},
     {id: 4, url: 'http://freewallpapersworld.com/ui/images/6/WDF_2029623.gif'}
   ];
-  index = 0;
   constructor() {
   }
-  // emit = new EventEmitter();
-  loadImage(index): Observable<Image> {
-    return Observable.of(this.arrayImage[index]);
+  emit = new EventEmitter();
+  loadImage(_index): Observable<Image> {
+    return Observable.of(this.arrayImage[_index]);
   }
 }
+
 
 export class Image {
   id: number;
