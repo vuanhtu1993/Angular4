@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, ReactiveFormsModule} from '@angular/forms';
+import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import 'rxjs/add/operator/debounce';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -10,14 +10,17 @@ import 'rxjs/add/operator/distinctUntilChanged';
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent implements OnInit {
-  searchField: FormControl;
+  searchField = new FormControl;
   searches: string[] = [];
-
+  projectForm = new FormGroup({
+    projectName: new FormControl(),
+    email: new FormControl(),
+  });
   constructor() {
   }
 
   ngOnInit() {
-    this.searchField = new FormControl();
+    console.log(this.projectForm);
     this.searchField.valueChanges
       .debounceTime(500)
       .distinctUntilChanged()

@@ -1,10 +1,25 @@
-<h4>Reactive Form</h4>
-
+<h3>Reactive Form</h3>
+<h5>1. <em>Search Form</em></h5>
 <input type="search"
        class="form-control"
        placeholder="Please enter search term"
        [formControl]="searchField">
-<hr/>
+<br>
 <ul class="list-unstyled">
   <li *ngFor="let search of searches">{{ search }}</li>
 </ul>
+<h5>2. <em>Project Form</em></h5>
+<form [formGroup]="projectForm">
+  <div class="form-group">
+    <label class="center-block">Project:
+      <input class="form-control" formControlName="projectName" placeholder="Name project">
+    </label>
+    <label class="center-block">Email:
+      <input class="form-control" formControlName="email" placeholder="Email">
+    </label>
+  </div>
+</form>
+<div>Project Form:</div>
+<p>value:{{projectForm.value | json}}</p>
+<p>value:{{projectForm.status | json}}</p>
+
