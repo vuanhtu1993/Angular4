@@ -9,7 +9,26 @@
   <div class="content mt-4">
     Reverse string: <input type="text" [(ngModel)]="string"><span>{{string | reverse}}</span>
     <hr>
-    Sort data: <span>{{data | sort}}</span>
+    Sort data:
+    <form [formGroup]='sortForm'>
+      <div class="form-group">
+        <select  name="type" id="type" class="form-control-sm" formControlName="type" ngModel="asc">
+          <option value="asc">ASC</option>
+          <option value="desc">DESC</option>
+        </select>
+        <select name="kind" id="kind" class="form-control-sm" formControlName="kind" ngModel="id">
+          <option value="id">ID</option>
+          <option value="name">Name</option>
+        </select>
+        <button class="btn btn-success btn-sm" type="submit" (click)="onClickSort()">Sort</button>
+      </div>
+    </form>
+
+    <div *ngFor="let person of arrayPerson | sort: type : kind">
+      ID:{{person.id}}
+      Name:{{person.name}}
+    </div>
+
   </div>
 </div>
 
