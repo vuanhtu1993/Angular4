@@ -2,11 +2,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <div style="text-align:center">
-    <h1>
+    <h2>
       Welcome to {{ title }}!
-    </h1>
+    </h2>
   </div>
-
-
+  <!--[class.backGround] = "condition -> return true or false"-->
+  <div [class.backGround] = "true">
+    <h4>Here a quick refresher on the 3 basic principles of Redux:</h4>
+    <h5>- The whole state of the app is stored in a single state tree.</h5>
+    <h5>- The state is read-only.</h5>
+    <h5>- State changes are made through reducers that use only pure functions
+      (functions that don’t mutate objects, but return completely new objects instead).</h5>
+  </div>
 </div>
 
