@@ -4,6 +4,8 @@ import {AuthenticationModule} from './authentication/authentication.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
+import {AppRoutingModule} from './app-routing.module';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import { HeaderComponent } from './component/header/header.component';
   imports: [
     BrowserModule,
     AuthenticationModule,
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
