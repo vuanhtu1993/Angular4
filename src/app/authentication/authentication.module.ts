@@ -9,12 +9,14 @@ import {AuthenticationComponent} from './authentication.component';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './auth.service';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
     AuthenticationComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

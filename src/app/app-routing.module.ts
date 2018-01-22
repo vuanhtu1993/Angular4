@@ -7,6 +7,7 @@ import {LoginComponent} from './authentication/login/login.component';
 const appRoutes: Routes = [
   {path: 'auth', component: AuthenticationComponent, children: [
     {path: 'login', component: LoginComponent},
+    {path: 'register', }
   ]}
 ];
 @NgModule({
