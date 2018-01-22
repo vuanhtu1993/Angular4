@@ -15,13 +15,13 @@ export class AuthService {
               private fireStore: AngularFirestore,
               private router: Router) {
     this.firebaseAuth.authState
-      .switchMap(user => {
-        if (user) {
-          return this.fireStore.doc(`users/${user.uid}`).valueChanges();
-        } else {
-          return Observable.of(null);
-        }
-      })
+      // .switchMap(user => {
+      //   if (user) {
+      //     return this.fireStore.doc(`users/${user.uid}`).valueChanges();
+      //   } else {
+      //     return Observable.of(null);
+      //   }
+      // })
       .subscribe((user: any) => {
         this.user = user;
         console.log(this.user);

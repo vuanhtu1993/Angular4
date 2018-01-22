@@ -8,6 +8,7 @@ import {environment} from '../../environments/environment';
 import {AuthenticationComponent} from './authentication.component';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
+import {AuthService} from './auth.service';
 
 
 @NgModule({
@@ -23,6 +24,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     AngularFireAuthModule,
     AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
 })
 export class AuthenticationModule {}
