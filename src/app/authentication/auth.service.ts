@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class AuthService {
 
   user: Observable<firebase.User>;
-
+  token: string;
   constructor(private firebaseAuth: AngularFireAuth,
               private fireStore: AngularFirestore,
               private router: Router) {
@@ -46,6 +46,8 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Nice, it worked!');
+        console.log(value);
+        this.getToken();
       })
       .catch(err => {
         console.log('Something went wrong:', err.message);
@@ -58,6 +60,13 @@ export class AuthService {
       .signOut()
       .then(() => {
         this.router.navigate(['/']);
+      });
+  }
+
+  getToken() {
+    firebase.auth().currentUser.getIdToken(true)
+      .then((token) => {
+      this.token = token;
       });
   }
 }

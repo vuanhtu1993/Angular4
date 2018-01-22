@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSignUp(loginForm) {
+  onLogin(loginForm) {
     if (loginForm.valid) {
       this.email = loginForm.value.email;
       this.password = loginForm.value.password;

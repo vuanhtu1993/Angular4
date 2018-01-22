@@ -26,7 +26,8 @@
       Password at least 6 digit
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="onSignUp(loginForm)">Submit</button>
+  <span><a routerLink="/auth/register"><em>Register now !</em></a></span>
+  <button type="submit" class="btn btn-primary" (click)="onLogin(loginForm)">Submit</button>
 </form>
 <p>Form value: {{ loginForm.value | json }}</p>
 <p>Form status: {{ loginForm.status | json }}</p>
