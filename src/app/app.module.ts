@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {}
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {environment} from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
@@ -12,7 +14,9 @@ import { HeaderComponent } from './component/header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuth,
   ],
   providers: [],
   bootstrap: [AppComponent]
