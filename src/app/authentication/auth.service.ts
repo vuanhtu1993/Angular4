@@ -11,17 +11,18 @@ export class AuthService {
 
   user: Observable<firebase.User>;
   token: string;
+
   constructor(private firebaseAuth: AngularFireAuth,
               private fireStore: AngularFirestore,
               private router: Router) {
     this.firebaseAuth.authState
-      // .switchMap(user => {
-      //   if (user) {
-      //     return this.fireStore.doc(`users/${user.uid}`).valueChanges();
-      //   } else {
-      //     return Observable.of(null);
-      //   }
-      // })
+    // .switchMap(user => {
+    //   if (user) {
+    //     return this.fireStore.doc(`users/${user.uid}`).valueChanges();
+    //   } else {
+    //     return Observable.of(null);
+    //   }
+    // })
       .subscribe((user: any) => {
         this.user = user;
         console.log(this.user);
@@ -46,7 +47,6 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Nice, it worked!');
-        console.log(value);
         this.getToken();
       })
       .catch(err => {
@@ -59,14 +59,18 @@ export class AuthService {
       .auth
       .signOut()
       .then(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/auth/login']);
+      })
+      .catch((errors) => {
+      console.log(errors);
       });
   }
 
   getToken() {
     firebase.auth().currentUser.getIdToken(true)
       .then((token) => {
-      this.token = token;
+        this.token = token;
+        console.log(this.token);
       });
   }
 }

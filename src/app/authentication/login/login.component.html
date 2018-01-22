@@ -27,7 +27,8 @@
     </div>
   </div>
   <span><a routerLink="/auth/register"><em>Register now !</em></a></span>
-  <button type="submit" class="btn btn-primary" (click)="onLogin(loginForm)">Submit</button>
+  <button type="submit" class="btn btn-primary" (click)="onLogin(loginForm)">Login</button>
+  <button type="submit" class="btn btn-danger" (click)="onLogout()">Logout</button>
 </form>
 <p>Form value: {{ loginForm.value | json }}</p>
 <p>Form status: {{ loginForm.status | json }}</p>
