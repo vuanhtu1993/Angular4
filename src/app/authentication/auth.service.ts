@@ -35,6 +35,7 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Success!', value);
+        this.getToken();
       })
       .catch(error => {
         console.log('Something went wrong:', error.message);
@@ -59,10 +60,11 @@ export class AuthService {
       .auth
       .signOut()
       .then(() => {
+        this.token = '';
         this.router.navigate(['/auth/login']);
       })
       .catch((errors) => {
-      console.log(errors);
+        console.log(errors);
       });
   }
 
