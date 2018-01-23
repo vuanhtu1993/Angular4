@@ -6,27 +6,21 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
-import { BooksComponent } from './books/books.component';
-import { BookComponent } from './books/book/book.component';
-import { BookListComponent } from './books/book-list/book-list.component';
-import { ManageBookComponent } from './books/manage-book/manage-book.component';
 import {AuthGuard} from './guard/authGuard';
+import {BookModule} from './books/book.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BooksComponent,
-    BookComponent,
-    BookListComponent,
-    ManageBookComponent,
   ],
   imports: [
     BrowserModule,
     AuthenticationModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    BookModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

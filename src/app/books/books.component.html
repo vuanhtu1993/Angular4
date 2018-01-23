@@ -1,3 +1,13 @@
-<p>
-  books works!
-</p>
+<h4>Welcome to the book management application</h4>
+
+<div class="row">
+  <div class="col-sm-4">
+    Searching part
+    <label for="book">Book Searching ...</label>
+    <input type="text" id="book" class="form-control" [formControl]="bookSearched">
+    <div>{{bookSearched.value}}</div>
+  </div>
+  <div class="col-sm-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>
