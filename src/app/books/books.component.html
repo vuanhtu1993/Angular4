@@ -4,8 +4,9 @@
   <div class="col-sm-4">
     Searching part
     <label for="book">Book Searching ...</label>
-    <input type="text" id="book" class="form-control" [formControl]="bookSearched">
-    <div>{{bookSearched.value}}</div>
+    <input type="text" id="book" class="form-control" [formControl]="bookForm">
+    <div>{{bookForm.value}}</div>
+    <div *ngFor="let book of booksSearched">{{book.volumeInfo | json}}</div>
   </div>
   <div class="col-sm-8">
     <router-outlet></router-outlet>
