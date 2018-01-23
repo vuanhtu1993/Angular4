@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from '../auth.service';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   constructor(private formBuilded: FormBuilder,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private router: Router) {
     this.createLoginForm();
   }
 

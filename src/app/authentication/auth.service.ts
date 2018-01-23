@@ -36,7 +36,6 @@ export class AuthService {
       .then(value => {
         console.log('Success!', value);
         this.getToken();
-        this.router.navigate(['/book']);
       })
       .catch(error => {
         console.log('Something went wrong:', error.message);
@@ -50,7 +49,6 @@ export class AuthService {
       .then(value => {
         console.log('Nice, it worked!');
         this.getToken();
-        this.router.navigate(['/book']);
       })
       .catch(err => {
         console.log('Something went wrong:', err.message);
@@ -63,7 +61,6 @@ export class AuthService {
       .signOut()
       .then(() => {
         this.token = '';
-        this.router.navigate(['/login']);
       })
       .catch((errors) => {
         console.log(errors);
@@ -75,6 +72,7 @@ export class AuthService {
       .then((token) => {
         this.token = token;
         console.log(this.token);
+        this.router.navigate(['/book']);
       });
   }
 }
