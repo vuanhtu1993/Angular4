@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/debounce';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'app-books',
@@ -12,7 +13,8 @@ import 'rxjs/add/operator/map';
 })
 export class BooksComponent implements OnInit {
   bookForm: FormControl;
-  booksSearched;
+  booksSearched = [];
+  arrayBook = [];
 
   constructor(private http: HttpClient) {
   }
@@ -23,16 +25,13 @@ export class BooksComponent implements OnInit {
       .valueChanges
       .debounceTime(200)
       .subscribe((value) => {
-        this.http.get('https://www.googleapis.com/books/v1/volumes?q=' + value)
+
+        const b = this.http.get('https://www.googleapis.com/books/v1/volumes?q=' + value)
           .map((book: any) => {
-           return book.items;
+            return book.items;
           })
-          .map((book: Book) => {
-            return book;
-          })
-          .subscribe((book) => {
-            // console.log(books);
-            this.booksSearched = book;
+          .subscribe((arrayBook) => {
+            this.booksSearched = arrayBook;
           });
       });
   }

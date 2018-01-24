@@ -6,7 +6,18 @@
     <label for="book">Book Searching ...</label>
     <input type="text" id="book" class="form-control" [formControl]="bookForm">
     <div>{{bookForm.value}}</div>
-    <div *ngFor="let book of booksSearched">{{book.volumeInfo | json}}</div>
+    <div *ngFor="let book of booksSearched">
+      {{book.volumeInfo | json}}
+      <!--<div class="card">-->
+        <!--<div class="card-header">-->
+          <!--<h4>{{book.volumeInfo.title}}</h4>-->
+          <!--<img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="">-->
+        <!--</div>-->
+        <!--<div class="card card-block">-->
+          <!--<p>{{book.volumeInfo.description}}</p>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
   </div>
   <div class="col-sm-8">
     <router-outlet></router-outlet>
