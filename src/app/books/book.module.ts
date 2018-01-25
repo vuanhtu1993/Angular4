@@ -7,6 +7,10 @@ import {ManageBookComponent} from './manage-book/manage-book.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {environment} from '../../environments/environment';
+import {BookService} from './book-service/book.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,10 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
+  providers: [BookService],
 })
 export class BookModule {}

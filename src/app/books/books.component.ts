@@ -5,6 +5,8 @@ import 'rxjs/add/operator/debounce';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import {Book} from './book-service/book';
+import {BookService} from './book-service/book.service';
 
 @Component({
   selector: 'app-books',
@@ -14,9 +16,10 @@ import 'rxjs/add/operator/do';
 export class BooksComponent implements OnInit {
   bookForm: FormControl;
   booksSearched = [];
-  arrayBook = [];
+  addedBook: Book;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private bookService: BookService) {
   }
 
   ngOnInit() {
@@ -26,7 +29,7 @@ export class BooksComponent implements OnInit {
       .debounceTime(200)
       .subscribe((value) => {
 
-        const b = this.http.get('https://www.googleapis.com/books/v1/volumes?q=' + value)
+        this.http.get('https://www.googleapis.com/books/v1/volumes?q=' + value)
           .map((book: any) => {
             return book.items;
           })
@@ -35,14 +38,15 @@ export class BooksComponent implements OnInit {
           });
       });
   }
+
+  onInsertBook(book) {
+    this.addedBook = new Book;
+    this.addedBook.title = book.title;
+    this.addedBook.authors = book.authors;
+    this.addedBook.description = book.description;
+    this.addedBook.pageCount = book.pageCount;
+    this.addedBook.imageLinks = book.imageLinks;
+    this.bookService.insertBook(this.addedBook);
+  }
 }
 
-export interface Book {
-  title: string;
-  authors: string;
-  publisher: string;
-  description: string;
-  publishedDate: string;
-  pageCount: string;
-  imageLinks: string;
-}

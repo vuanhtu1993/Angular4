@@ -1,25 +1,23 @@
 <h4>Welcome to the book management application</h4>
 
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-sm-3">
     Searching part
     <label for="book">Book Searching ...</label>
     <input type="text" id="book" class="form-control" [formControl]="bookForm">
-    <div>{{bookForm.value}}</div>
+    <!--<div>{{bookForm.value}}</div>-->
     <div *ngFor="let book of booksSearched">
-      {{book.volumeInfo | json}}
-      <!--<div class="card">-->
-        <!--<div class="card-header">-->
-          <!--<h4>{{book.volumeInfo.title}}</h4>-->
-          <!--<img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="">-->
-        <!--</div>-->
-        <!--<div class="card card-block">-->
-          <!--<p>{{book.volumeInfo.description}}</p>-->
-        <!--</div>-->
-      <!--</div>-->
+      <!--{{book.volumeInfo | json}}-->
+      <div class="card">
+        <div class="card-header">
+          <h4>{{book.volumeInfo.title}}</h4>
+          <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="">
+        </div>
+        <a class="btn btn-secondary btn-sm" (click)="onInsertBook(book.volumeInfo)"> + Add to bookshelf</a>
+      </div>
     </div>
   </div>
-  <div class="col-sm-8">
+  <div class="col-sm-9">
     <router-outlet></router-outlet>
   </div>
 </div>
