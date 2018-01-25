@@ -19,8 +19,9 @@ const appRoutes: Routes = [
     {path: '', component: BookListComponent, children: [
       {path: ':id', component: BookComponent},
       {path: ':id', component: ManageBookComponent}
-    ]}
-  ]}
+    ]},
+  ]},
+  {path: '**', component: LoginComponent}
 ];
 @NgModule({
   imports: [
