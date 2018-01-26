@@ -11,6 +11,5 @@ export class BookComponent implements OnInit {
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    console.log(this.bookService.bookSelected);
   }
 }

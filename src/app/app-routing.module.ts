@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   {path: 'book', component: BooksComponent, canActivate: [AuthGuard], children: [
     {path: '', component: BookListComponent, children: [
       {path: ':id', component: BookComponent},
-      {path: 'detail/:id', component: ManageBookComponent}
+      {path: 'edit/:id', component: ManageBookComponent}
     ]},
   ]},
   {path: '**', component: LoginComponent}

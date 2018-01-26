@@ -4,4 +4,5 @@ export class Book {
   authors: string[];
   pageCount: string;
   imageLinks: string;
+  $key: string;
 }

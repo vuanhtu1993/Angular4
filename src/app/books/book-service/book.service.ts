@@ -17,10 +17,17 @@ export class BookService {
     this.bookList.push(book);
     console.log(book);
   }
-  updateBook(book) {
-    this.bookList.update(book.$key, book);
+  updateBook(book: Book) {
+    console.log(book);
+    this.bookList.update(book.$key, {
+      title : book.title,
+      description : book.description,
+      authors : book.authors,
+      imageLinks : book.imageLinks,
+      pageCount : book.pageCount,
+    });
   }
-  deleteBook(book) {
-    this.bookList.remove(book.$key);
+  deleteBook($key) {
+    this.bookList.remove($key);
   }
 }
