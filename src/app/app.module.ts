@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {AuthGuard} from './guard/authGuard';
 import {BookModule} from './books/book.module';
+import {ToastrModule} from 'ngx-toastr';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {BookModule} from './books/book.module';
     AppRoutingModule,
     RouterModule,
     BookModule,
+    ToastrModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
