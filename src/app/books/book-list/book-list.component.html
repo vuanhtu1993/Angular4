@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col-sm-8">
+    <h4 style="color: cornflowerblue">My Bookshelf</h4>
     <div class="row">
       <div class="col-sm-6" *ngFor="let b of books; let i = index">
         <div class="mt-2">
           <h6>{{i }}. {{b.title}}</h6>
-          <a routerLink="{{i}}">
+          <a routerLink="{{b.$key}}" (click)="onSelected(b)">
             <div class="text-center">
               <img src="{{b.imageLinks.smallThumbnail}}" alt="">
             </div>

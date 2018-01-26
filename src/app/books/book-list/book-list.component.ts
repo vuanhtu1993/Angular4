@@ -10,7 +10,6 @@ import {Book} from '../book-service/book';
 export class BookListComponent implements OnInit {
 
   books: Book[];
-
   constructor(private bookService: BookService) {
   }
 
@@ -25,5 +24,7 @@ export class BookListComponent implements OnInit {
         });
       });
   }
-
+  onSelected(book) {
+    this.bookService.bookSelected = book;
+  }
 }

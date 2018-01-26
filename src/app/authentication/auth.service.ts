@@ -25,7 +25,7 @@ export class AuthService {
     // })
       .subscribe((user: any) => {
         this.user = user;
-        console.log(this.user);
+        // console.log(this.user);
       });
   }
 
