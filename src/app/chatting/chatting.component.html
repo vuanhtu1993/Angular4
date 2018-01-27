@@ -1,0 +1,11 @@
+<div class="container">
+  <h4>Chatting Feature</h4>
+  <div class="form-control mt-2" *ngFor="let m of message">{{m.value}}</div>
+  <form [formGroup]="chatForm">
+    <div class="form-group form-inline mt-5">
+      <input style="width: 80%" class="form-control mr-4" type="text" placeholder="Your message" formControlName="value">
+      <button class="btn btn-primary" (click)="onNewMessage(chatForm.value)">Send</button>
+    </div>
+  </form>
+</div>
+

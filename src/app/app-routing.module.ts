@@ -9,6 +9,7 @@ import {BookListComponent} from './books/book-list/book-list.component';
 import {BookComponent} from './books/book/book.component';
 import {ManageBookComponent} from './books/manage-book/manage-book.component';
 import {AuthGuard} from './guard/authGuard';
+import {ChattingComponent} from "./chatting/chatting.component";
 
 const appRoutes: Routes = [
   {path: '', component: AuthenticationComponent, children: [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
       {path: 'edit/:id', component: ManageBookComponent}
     ]},
   ]},
+  {path: 'chatting', component: ChattingComponent},
   {path: '**', component: LoginComponent}
 ];
 @NgModule({

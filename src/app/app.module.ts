@@ -10,7 +10,7 @@ import {AuthGuard} from './guard/authGuard';
 import {BookModule} from './books/book.module';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {ChattingModule} from "./chatting/chatting.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AuthenticationModule,
+    ChattingModule,
     AppRoutingModule,
     RouterModule,
     BookModule,
