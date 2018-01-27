@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 
 @Injectable()
 export class ChattingService {
-  messageCollection: AngularFirestoreCollection<any>;
-  constructor(private fireStore: AngularFirestore) { }
+  messageCollection: AngularFireList<any>;
+  constructor(private fireDB: AngularFireDatabase) { }
 
   getMessage() {
-    this.messageCollection = this.fireStore.collection<any>('chatting');
+    this.messageCollection = this.fireDB.list('chatting');
     return this.messageCollection;
   }
   newMessage(message) {
-    this.messageCollection.add(message);
+    this.messageCollection.push(message);
   }
 }
