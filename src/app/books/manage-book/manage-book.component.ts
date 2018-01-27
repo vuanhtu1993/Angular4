@@ -31,8 +31,4 @@ export class ManageBookComponent implements OnInit {
   onUpdate(bookEdit: Book) {
     this.bookService.updateBook(bookEdit);
   }
-  onDelete($key) {
-    this.bookService.deleteBook($key);
-    this.editForm.reset();
-  }
 }

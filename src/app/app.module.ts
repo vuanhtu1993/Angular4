@@ -9,6 +9,7 @@ import {RouterModule} from '@angular/router';
 import {AuthGuard} from './guard/authGuard';
 import {BookModule} from './books/book.module';
 import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {ToastrModule} from 'ngx-toastr';
     AppRoutingModule,
     RouterModule,
     BookModule,
-    ToastrModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

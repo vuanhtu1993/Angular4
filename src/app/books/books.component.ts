@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import {Book} from './book-service/book';
 import {BookService} from './book-service/book.service';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-books',
@@ -19,7 +20,8 @@ export class BooksComponent implements OnInit {
   addedBook: Book;
 
   constructor(private http: HttpClient,
-              private bookService: BookService) {
+              private bookService: BookService,
+              private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -47,6 +49,7 @@ export class BooksComponent implements OnInit {
     this.addedBook.pageCount = book.pageCount;
     this.addedBook.imageLinks = book.imageLinks;
     this.bookService.insertBook(this.addedBook);
+    this.toastr.success('Adding successfully', 'Book added');
   }
 }
 

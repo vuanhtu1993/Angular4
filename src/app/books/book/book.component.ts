@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BookService} from '../book-service/book.service';
+import {Book} from "../book-service/book";
 
 @Component({
   selector: 'app-book',
@@ -8,8 +9,13 @@ import {BookService} from '../book-service/book.service';
 })
 export class BookComponent implements OnInit {
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService) {
+  }
 
   ngOnInit() {
+  }
+
+  onDeleteBook($key) {
+    this.bookService.deleteBook($key);
   }
 }
