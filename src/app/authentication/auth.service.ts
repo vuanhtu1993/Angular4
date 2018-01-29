@@ -9,18 +9,21 @@ import {Router} from '@angular/router';
 @Injectable()
 export class AuthService {
 
-  user: Observable<firebase.User>;
+  user;
   token: string;
 
   constructor(private firebaseAuth: AngularFireAuth,
               private fireStore: AngularFirestore,
               private router: Router) {
-    this.firebaseAuth.authState
-      .subscribe((user: any) => {
-        if (user) {
-          this.user = user;
-        }
-      });
+    this.firebaseAuth.auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user;
+        this.getToken();
+      } else {
+        this.user = null;
+        console.log('please log in !');
+      }
+    });
   }
 
   signUp(email: string, password: string) {
@@ -54,7 +57,7 @@ export class AuthService {
       .auth
       .signOut()
       .then(() => {
-        this.token = '';
+        console.log(this.user);
       })
       .catch((errors) => {
         console.log(errors);

@@ -10,15 +10,12 @@ import {User} from '../authentication/user.model';
   styleUrls: ['./chatting.component.css']
 })
 export class ChattingComponent implements OnInit {
-
-  user: User;
   message;
   chatForm: FormGroup;
 
   constructor(private chattingService: ChattingService,
               private formBuider: FormBuilder,
               private firebaseAuth: AngularFireAuth) {
-    this.user = this.firebaseAuth.auth.currentUser;
     this.createChatForm();
   }
 
