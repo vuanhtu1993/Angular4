@@ -1,12 +1,12 @@
 <div class="container">
   <h4>Chatting Feature</h4>
-  <div *ngFor="let m of message">
+  <div *ngFor="let m of message" class="mt-2">
     <div class="badge badge-info">{{m.user}}</div>
-    <div class="form-control mt-2">{{m.value}}</div>
+    <div class="form-control">{{m.value}}</div>
   </div>
   <form [formGroup]="chatForm">
     <div class="form-group form-inline mt-5">
-      <input style="width: 80%" class="form-control mr-4" type="text" placeholder="Your message" formControlName="value">
+      <input style="width: 80%" class="form-control mr-2" type="text" placeholder="Your message" formControlName="value">
       <button class="btn btn-primary" (click)="onNewMessage(chatForm.value)">Send</button>
     </div>
   </form>
