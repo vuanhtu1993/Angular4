@@ -11,11 +11,13 @@ import {BookModule} from './books/book.module';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ChattingModule} from "./chatting/chatting.module";
+import { ResumeComponent } from './resume/resume.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    ResumeComponent,
   ],
   imports: [
     BrowserModule,

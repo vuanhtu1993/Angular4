@@ -9,6 +9,7 @@ import {BookComponent} from './books/book/book.component';
 import {ManageBookComponent} from './books/manage-book/manage-book.component';
 import {AuthGuard} from './guard/authGuard';
 import {ChattingComponent} from './chatting/chatting.component';
+import {ResumeComponent} from './resume/resume.component';
 
 const appRoutes: Routes = [
   {path: '', component: AuthenticationComponent, children: [
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     ]},
   ]},
   {path: 'chatting', component: ChattingComponent, canActivate: [AuthGuard]},
+  {path: 'resume', component: ResumeComponent},
   {path: '**', component: LoginComponent}
 ];
 @NgModule({

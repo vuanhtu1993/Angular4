@@ -18,7 +18,6 @@ export class AuthService {
     this.firebaseAuth.auth.onAuthStateChanged((user) => {
       if (user) {
         this.user = user;
-        this.getToken();
       } else {
         this.user = null;
         console.log('please log in !');
@@ -57,7 +56,7 @@ export class AuthService {
       .auth
       .signOut()
       .then(() => {
-        console.log(this.user);
+        this.router.navigate(['/']);
       })
       .catch((errors) => {
         console.log(errors);

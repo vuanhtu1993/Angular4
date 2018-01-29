@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {Router} from "@angular/router";
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   password: string;
   constructor(private formBuilded: FormBuilder,
               private authService: AuthService,
-              private router: Router) {
+              private toastr: ToastrService) {
     this.createLoginForm();
   }
 
@@ -35,10 +36,7 @@ export class LoginComponent implements OnInit {
       this.password = loginForm.value.password;
       this.authService.logIn(this.email, this.password);
       this.loginForm.reset();
+      this.toastr.success('Waiting a second', 'Login successfully');
     }
-  }
-  onLogout() {
-    this.authService.logOut();
-    this.loginForm.reset();
   }
 }
