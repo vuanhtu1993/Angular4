@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Router, Routes} from '@angular/router';
-import {AppComponent} from './app.component';
 import {AuthenticationComponent} from './authentication/authentication.component';
 import {LoginComponent} from './authentication/login/login.component';
 import {RegisterComponent} from './authentication/register/register.component';
@@ -9,7 +8,7 @@ import {BookListComponent} from './books/book-list/book-list.component';
 import {BookComponent} from './books/book/book.component';
 import {ManageBookComponent} from './books/manage-book/manage-book.component';
 import {AuthGuard} from './guard/authGuard';
-import {ChattingComponent} from "./chatting/chatting.component";
+import {ChattingComponent} from './chatting/chatting.component';
 
 const appRoutes: Routes = [
   {path: '', component: AuthenticationComponent, children: [
@@ -22,7 +21,7 @@ const appRoutes: Routes = [
       {path: 'edit/:id', component: ManageBookComponent}
     ]},
   ]},
-  {path: 'chatting', component: ChattingComponent},
+  {path: 'chatting', component: ChattingComponent, canActivate: [AuthGuard]},
   {path: '**', component: LoginComponent}
 ];
 @NgModule({

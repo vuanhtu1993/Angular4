@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ChattingService} from './chatting.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {User} from '../authentication/user.model';
 
 @Component({
   selector: 'app-chatting',
@@ -9,19 +11,21 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class ChattingComponent implements OnInit {
 
+  user: User;
   message;
   chatForm: FormGroup;
+
   constructor(private chattingService: ChattingService,
-              private formBuider: FormBuilder) {
+              private formBuider: FormBuilder,
+              private firebaseAuth: AngularFireAuth) {
+    this.user = this.firebaseAuth.auth.currentUser;
     this.createChatForm();
-    console.log(this.chatForm);
   }
 
   ngOnInit() {
     this.chattingService.getMessage().valueChanges()
       .subscribe((message) => {
         this.message = message;
-        console.log(this.message);
       });
   }
 
@@ -29,8 +33,10 @@ export class ChattingComponent implements OnInit {
     this.chattingService.newMessage(message);
     this.chatForm.reset();
   }
+
   createChatForm() {
     this.chatForm = this.formBuider.group({
+      user: [''],
       value: [''],
     });
   }
