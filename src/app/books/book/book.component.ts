@@ -15,7 +15,4 @@ export class BookComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDeleteBook($key) {
-    this.bookService.deleteBook($key);
-  }
 }

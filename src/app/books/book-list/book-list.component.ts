@@ -11,6 +11,7 @@ import {ToastrService} from 'ngx-toastr';
 export class BookListComponent implements OnInit {
 
   books: Book[];
+
   constructor(private bookService: BookService,
               private toastr: ToastrService) {
   }
@@ -26,7 +27,12 @@ export class BookListComponent implements OnInit {
         });
       });
   }
+
   onSelected(book) {
     this.bookService.bookSelected = book;
+  }
+
+  onDeleteBook(key) {
+    this.bookService.deleteBook(key);
   }
 }

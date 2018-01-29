@@ -10,13 +10,15 @@ import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './auth.service';
 import { RegisterComponent } from './register/register.component';
+import { IntroComponent } from './intro/intro.component';
 
 
 @NgModule({
   declarations: [
     AuthenticationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,

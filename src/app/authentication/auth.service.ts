@@ -18,6 +18,7 @@ export class AuthService {
     this.firebaseAuth.auth.onAuthStateChanged((user) => {
       if (user) {
         this.user = user;
+        this.router.navigate(['']);
       } else {
         this.user = null;
         console.log('please log in !');

@@ -5,7 +5,7 @@
       <h6>{{bookService.bookSelected.title}}</h6>
       <img src="{{bookService.bookSelected.imageLinks.smallThumbnail}}" alt="">
     </div>
-    <div class="card-blockquote">
+    <div class="card-blockquote p-4">
       <p>
         <em>{{bookService.bookSelected.authors | json}}</em>
       </p>
@@ -14,6 +14,5 @@
       <p>{{bookService.bookSelected.pageCount}} pages</p>
     </div>
     <a routerLink="/book/edit/{{bookService.bookSelected.$key}}" class="btn btn-outline-info">Edit book</a>
-    <a class="btn btn-danger" (click)="onDeleteBook(bookService.bookSelected.$key)">Delete book</a>
   </div>
 </div>

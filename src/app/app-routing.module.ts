@@ -10,9 +10,11 @@ import {ManageBookComponent} from './books/manage-book/manage-book.component';
 import {AuthGuard} from './guard/authGuard';
 import {ChattingComponent} from './chatting/chatting.component';
 import {ResumeComponent} from './resume/resume.component';
+import {IntroComponent} from './authentication/intro/intro.component';
 
 const appRoutes: Routes = [
   {path: '', component: AuthenticationComponent, children: [
+    {path: '', component: IntroComponent},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent}
   ]},

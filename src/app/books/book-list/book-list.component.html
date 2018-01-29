@@ -5,11 +5,17 @@
       <div class="col-sm-6" *ngFor="let b of books; let i = index">
         <div class="mt-2">
           <h6>{{i }}. {{b.title}}</h6>
-          <a routerLink="{{b.$key}}" (click)="onSelected(b)">
-            <div class="text-center">
-              <img src="{{b.imageLinks.smallThumbnail}}" alt="">
+          <div class="row">
+            <div class="col-sm-8 text-center">
+              <a routerLink="{{b.$key}}" (click)="onSelected(b)">
+                <img class="img-fluid" src="{{b.imageLinks.smallThumbnail}}" alt="">
+              </a>
             </div>
-          </a>
+            <div class="col-sm-4">
+              <a class="btn btn-outline-info btn-sm" routerLink="{{b.$key}}" (click)="onSelected(b)">Detail</a>
+              <button class="btn btn-outline-danger btn-sm mt-2" (click)="onDeleteBook(b.$key)">Delete</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

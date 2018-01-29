@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Book} from './book';
 import {ToastrService} from 'ngx-toastr';
@@ -9,26 +9,30 @@ export class BookService {
   bookList: AngularFireList<any>;
   bookSelected: Book;
   constructor(private fireDB: AngularFireDatabase,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService) {
+  }
 
   getBooks() {
     this.bookList = this.fireDB.list('books');
     return this.bookList;
   }
+
   insertBook(book: Book) {
     this.bookList.push(book);
     console.log(book);
   }
+
   updateBook(book: Book) {
     console.log(book);
     this.bookList.update(book.$key, {
-      title : book.title,
-      description : book.description,
-      authors : book.authors,
-      imageLinks : book.imageLinks,
-      pageCount : book.pageCount,
+      title: book.title,
+      description: book.description,
+      authors: book.authors,
+      imageLinks: book.imageLinks,
+      pageCount: book.pageCount,
     });
   }
+
   deleteBook($key) {
     this.bookList.remove($key);
   }
