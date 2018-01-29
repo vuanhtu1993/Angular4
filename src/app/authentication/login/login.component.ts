@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   constructor(private formBuilded: FormBuilder,
-              private authService: AuthService,
-              private toastr: ToastrService) {
+              private authService: AuthService) {
     this.createLoginForm();
   }
 
@@ -36,7 +35,6 @@ export class LoginComponent implements OnInit {
       this.password = loginForm.value.password;
       this.authService.logIn(this.email, this.password);
       this.loginForm.reset();
-      this.toastr.success('Waiting a second', 'Login successfully');
     }
   }
 }

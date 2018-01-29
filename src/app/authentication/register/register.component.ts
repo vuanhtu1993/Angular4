@@ -13,8 +13,7 @@ export class RegisterComponent implements OnInit {
   email: string;
   password: string;
   constructor(private formBuilder: FormBuilder,
-              private authService: AuthService,
-              private toastr: ToastrService) {
+              private authService: AuthService) {
     this.createRegisterForm();
   }
 
@@ -33,7 +32,6 @@ export class RegisterComponent implements OnInit {
       this.password = registerForm.value.password;
       this.authService.signUp(this.email, this.password);
       this.registerForm.reset();
-      this.toastr.success('Waiting a second', 'Register successfully');
     }
   }
 }
