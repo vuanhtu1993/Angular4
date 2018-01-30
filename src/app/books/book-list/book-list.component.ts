@@ -33,6 +33,8 @@ export class BookListComponent implements OnInit {
   }
 
   onDeleteBook(key) {
-    this.bookService.deleteBook(key);
+    if (confirm('Are you sure ?')) {
+      this.bookService.deleteBook(key);
+    }
   }
 }
