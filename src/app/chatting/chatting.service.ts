@@ -7,6 +7,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 export class ChattingService {
   messageCollection: AngularFireList<any>;
   user;
+  someoneTyping;
   constructor(private fireDB: AngularFireDatabase,
               private authService: AuthService,
               private firebaseAuth: AngularFireAuth) {

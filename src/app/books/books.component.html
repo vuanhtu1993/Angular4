@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card-header">
             <h4>{{book.volumeInfo.title}}</h4>
-            <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="">
+            <img src="{{book.volumeInfo.imageLinks?.smallThumbnail}}" alt="">
           </div>
           <a class="btn btn-secondary btn-sm" (click)="onInsertBook(book.volumeInfo)"> + Add to bookshelf</a>
         </div>
