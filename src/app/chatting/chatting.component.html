@@ -3,11 +3,11 @@
   <div *ngFor="let m of message" class="mt-2">
     <div class="">
       <span class="badge badge-info">{{m.user}}</span>
-      <span class="badge badge-default">{{m?.time}}</span>
+      <span class="badge badge-default">{{m.time}}</span>
     </div>
     <div class="form-control">{{m.value}}</div>
   </div>
-  <div *ngIf='chattingService.someoneTyping'>{{chattingService.someoneTyping}} is typing ...</div>
+  <div *ngIf='_isTyping && (_sbTyping != currentUser.email)'>{{_sbTyping}} is typing ...</div>
   <form [formGroup]="chatForm">
     <div class="form-group form-inline mt-5">
       <input style="width: 80%" class="form-control mr-2" type="text" placeholder="Your message" formControlName="value">

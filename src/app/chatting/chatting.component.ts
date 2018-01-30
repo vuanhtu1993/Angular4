@@ -12,31 +12,37 @@ import 'rxjs/operator/concatAll';
 })
 export class ChattingComponent implements OnInit {
   message;
-  user;
+  currentUser;
   chatForm: FormGroup;
+  _isTyping = false;
+  _sbTyping = '';
 
   constructor(private chattingService: ChattingService,
               private formBuider: FormBuilder,
               private firebaseAuth: AngularFireAuth) {
+    this.currentUser = this.firebaseAuth.auth.currentUser;
     this.createChatForm();
-    this.user = this.firebaseAuth.auth.currentUser;
+    this.chattingService.getIsTyping()
+      .subscribe((isTyping) => {
+        this._isTyping = isTyping.isTyping;
+        this._sbTyping = isTyping.user;
+      });
   }
 
   ngOnInit() {
-    console.log(this.chattingService.user);
     const inputChange = this.chatForm.valueChanges;
     let timeout;
     inputChange
       .subscribe(() => {
-        this.chattingService.someoneTyping = this.user.email;
         clearTimeout(timeout);
+        this.chattingService.setIsTyping(true);
         timeout = setTimeout(() => {
-          this.chattingService.someoneTyping = '';
-        }, 1000);
+          this.chattingService.setIsTyping(false);
+        }, 500);
       });
     this.chattingService.getMessage().valueChanges()
-      .subscribe((message) => {
-        this.message = message;
+      .subscribe((messageObj) => {
+        this.message = messageObj;
       });
   }
 
