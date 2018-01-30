@@ -32,6 +32,8 @@ export class ManageBookComponent implements OnInit {
   }
   onUpdate(bookEdit: Book) {
     this.bookService.updateBook(bookEdit);
-    this.toastr.success('Updated successfully', 'Book updated');
+    setTimeout(() => {
+      this.toastr.success('Updated successfully', 'Book updated');
+    }, 200);
   }
 }

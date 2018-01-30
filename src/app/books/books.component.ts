@@ -54,7 +54,9 @@ export class BooksComponent implements OnInit {
     this.addedBook.imageLinks = book.imageLinks;
     this.addedBook.user = this.currentUser.email;
     this.bookService.insertBook(this.addedBook);
-    this.toastr.success('Adding successfully', 'Book added');
+    setTimeout(() => {
+      this.toastr.success('Adding successfully', 'Book added');
+    }, 200);
   }
 }
 
