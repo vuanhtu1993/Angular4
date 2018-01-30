@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BookService} from '../book-service/book.service';
 import {Book} from '../book-service/book';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-manage-book',
@@ -12,7 +13,8 @@ export class ManageBookComponent implements OnInit {
   editForm: FormGroup;
   editedBook:  Book;
   constructor(private bookService: BookService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private toastr: ToastrService) {
     this.createEditForm();
   }
 
@@ -30,5 +32,6 @@ export class ManageBookComponent implements OnInit {
   }
   onUpdate(bookEdit: Book) {
     this.bookService.updateBook(bookEdit);
+    this.toastr.success('Updated successfully', 'Book updated');
   }
 }
