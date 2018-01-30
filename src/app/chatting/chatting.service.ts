@@ -18,7 +18,9 @@ export class ChattingService {
     return this.messageCollection;
   }
   newMessage(message) {
+    const today = new Date();
     message.user = this.user.email;
+    message.time = today.toLocaleString();
     console.log(message);
     this.messageCollection.push(message);
   }

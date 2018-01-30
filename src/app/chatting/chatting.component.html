@@ -1,7 +1,10 @@
 <div class="container">
   <h4>Chatting Feature</h4>
   <div *ngFor="let m of message" class="mt-2">
-    <div class="badge badge-info">{{m.user}}</div>
+    <div class="">
+      <span class="badge badge-info">{{m.user}}</span>
+      <span class="badge badge-default">{{m?.time}}</span>
+    </div>
     <div class="form-control">{{m.value}}</div>
   </div>
   <form [formGroup]="chatForm">

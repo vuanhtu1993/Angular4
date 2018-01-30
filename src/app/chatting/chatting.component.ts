@@ -34,6 +34,7 @@ export class ChattingComponent implements OnInit {
   createChatForm() {
     this.chatForm = this.formBuider.group({
       user: [''],
+      time: [''],
       value: [''],
     });
   }
