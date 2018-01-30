@@ -1,15 +1,13 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Book} from './book';
-import {ToastrService} from 'ngx-toastr';
 
 
 @Injectable()
 export class BookService {
   bookList: AngularFireList<any>;
   bookSelected: Book;
-  constructor(private fireDB: AngularFireDatabase,
-              private toastr: ToastrService) {
+  constructor(private fireDB: AngularFireDatabase) {
   }
 
   getBooks() {

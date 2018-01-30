@@ -5,4 +5,5 @@ export class Book {
   pageCount: string;
   imageLinks: string;
   $key: string;
+  user: string;
 }

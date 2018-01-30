@@ -7,7 +7,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import {Book} from './book-service/book';
 import {BookService} from './book-service/book.service';
-import {ToastrService} from "ngx-toastr";
+import {ToastrService} from 'ngx-toastr';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 @Component({
   selector: 'app-books',
@@ -18,10 +19,14 @@ export class BooksComponent implements OnInit {
   bookForm: FormControl;
   booksSearched = [];
   addedBook: Book;
+  currentUser;
 
   constructor(private http: HttpClient,
               private bookService: BookService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private fireAuth: AngularFireAuth) {
+    this.currentUser = this.fireAuth.auth.currentUser;
+    console.log(this.currentUser);
   }
 
   ngOnInit() {
@@ -30,7 +35,6 @@ export class BooksComponent implements OnInit {
       .valueChanges
       .debounceTime(200)
       .subscribe((value) => {
-
         this.http.get('https://www.googleapis.com/books/v1/volumes?q=' + value)
           .map((book: any) => {
             return book.items;
@@ -48,6 +52,7 @@ export class BooksComponent implements OnInit {
     this.addedBook.description = book.description;
     this.addedBook.pageCount = book.pageCount;
     this.addedBook.imageLinks = book.imageLinks;
+    this.addedBook.user = this.currentUser.email;
     this.bookService.insertBook(this.addedBook);
     this.toastr.success('Adding successfully', 'Book added');
   }
