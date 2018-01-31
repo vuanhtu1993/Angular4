@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, CanDeactivate, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import {AuthService} from '../authentication/auth.service';
+import {ChattingComponent} from '../chatting/chatting.component';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -21,4 +22,15 @@ export class AuthGuard implements CanActivate {
     this.router.navigate(['/login']);
     return false;
   }
+}
+
+export class ChattingGuard implements CanDeactivate<ChattingComponent> {
+  canDeactivate(component: ChattingComponent,
+                currentRoute: ActivatedRouteSnapshot,
+                currentState: RouterStateSnapshot,
+                nextState?: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
+    console.log('ChattingGuard');
+    return component.canDeactive() || window.confirm('Some task is running. Do you want to get out ?');
+  }
+
 }

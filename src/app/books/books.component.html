@@ -1,13 +1,10 @@
-<div class="" style="width: 96%; margin: auto">
-  <h4>Book Management</h4>
-
+<div class="mt-4" style="width: 96%; margin: auto">
+  <h3 class="mb-4">Book Management</h3>
   <div class="row">
-    <div class="col-sm-3">
-      <label for="book">Book Searching ...</label>
-      <input type="text" id="book" class="form-control" [formControl]="bookForm">
-      <!--<div>{{bookForm.value}}</div>-->
+    <div class="search-bar col-sm-3">
+      <h4 style="color: firebrick"><label for="book">Book search</label></h4>
+      <input type="text" id="book" class="form-control" [formControl]="bookForm" placeholder="Book searching">
       <div *ngFor="let book of booksSearched">
-        <!--{{book.volumeInfo | json}}-->
         <div class="card">
           <div class="card-header">
             <h4>{{book.volumeInfo?.title}}</h4>

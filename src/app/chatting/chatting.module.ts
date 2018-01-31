@@ -6,6 +6,7 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {ChattingService} from './chatting.service';
 import {environment} from '../../environments/environment';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ChattingGuard} from '../guard/authGuard';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   declarations: [
     ChattingComponent
   ],
-  providers: [ChattingService],
+  providers: [ChattingService, ChattingGuard],
 })
 export class ChattingModule { }

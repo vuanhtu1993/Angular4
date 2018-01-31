@@ -58,4 +58,12 @@ export class ChattingComponent implements OnInit {
       value: [''],
     });
   }
+
+  canDeactive() {
+    if (this.chatForm.value.value) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
