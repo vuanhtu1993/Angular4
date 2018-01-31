@@ -9,6 +9,7 @@ import {Book} from './book-service/book';
 import {BookService} from './book-service/book.service';
 import {ToastrService} from 'ngx-toastr';
 import {AngularFireAuth} from 'angularfire2/auth';
+import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-books',
@@ -48,10 +49,12 @@ export class BooksComponent implements OnInit {
   onInsertBook(book) {
     this.addedBook = new Book;
     this.addedBook.title = book.title;
-    this.addedBook.authors = book.authors;
-    this.addedBook.description = book.description;
-    this.addedBook.pageCount = book.pageCount;
-    this.addedBook.imageLinks = book.imageLinks;
+    this.addedBook.authors = (book.authors == null || book.authors === undefined) ? 'Unknown' : book.authors;
+    this.addedBook.description = (book.description == null || book.description === undefined) ? 'No description' : book.description;
+    this.addedBook.pageCount = (book.pageCount == null || book.pageCount === undefined) ? 'No page count' : book.pageCount;
+    this.addedBook.imageLinks = (book.imageLinks == null || book.imageLinks === undefined)
+      ? {'smallThumbnail': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png'}
+      : book.imageLinks;
     this.addedBook.user = this.currentUser.email;
     this.bookService.insertBook(this.addedBook);
     setTimeout(() => {
