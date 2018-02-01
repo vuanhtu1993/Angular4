@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {BookService} from '../book-service/book.service';
 import {Book} from '../book-service/book';
 import {ToastrService} from 'ngx-toastr';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {User} from '../../authentication/user.model';
 
 @Component({
   selector: 'app-book-list',
@@ -9,11 +11,13 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-
+  user: User;
   books: Book[];
 
   constructor(private bookService: BookService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private fireAuth: AngularFireAuth) {
+    this.user = this.fireAuth.auth.currentUser;
   }
 
   ngOnInit() {
@@ -23,7 +27,9 @@ export class BookListComponent implements OnInit {
         books.forEach((element) => {
           const x = element.payload.toJSON();
           x['$key'] = element.key;
-          this.books.push(x as Book);
+          if (x.user === this.user.email) {
+            this.books.push(x as Book);
+          }
         });
       });
   }
