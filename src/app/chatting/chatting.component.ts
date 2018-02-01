@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ChattingService} from './chatting.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AngularFireAuth} from 'angularfire2/auth';
@@ -10,7 +10,8 @@ import 'rxjs/operator/concatAll';
   templateUrl: './chatting.component.html',
   styleUrls: ['./chatting.component.css']
 })
-export class ChattingComponent implements OnInit {
+export class ChattingComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scroll') private feedContainer: ElementRef;
   message;
   currentUser;
   chatForm: FormGroup;
@@ -62,8 +63,16 @@ export class ChattingComponent implements OnInit {
   canDeactive() {
     if (this.chatForm.value.value) {
       return false;
-    } else {
+    }else {
       return true;
     }
+  }
+
+  scrollToBottom(): void {
+    this.feedContainer.nativeElement.scrollTop = this.feedContainer.nativeElement.scrollHeight;
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 }
