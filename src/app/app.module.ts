@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
+import {StoreModule} from '@ngrx/store';
+import {counterReducer} from './redux/couter';
 
 
 @NgModule({
@@ -12,7 +14,8 @@ import { HeaderComponent } from './component/header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot({count: counterReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
