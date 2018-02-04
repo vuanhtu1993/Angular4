@@ -1,4 +1,4 @@
-import { Currency } from './../models/currency';
+import { Currency } from '../models/currency';
 import { Action } from '@ngrx/store';
 
 export const CURRENCIESUPDATE = '[Currency] UpdateAll';
