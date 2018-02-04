@@ -6,13 +6,6 @@
       Welcome to actually understanding {{ title }}!
     </h1>
   </div>
-  <div class="example1">
-    <h4>Example 1</h4>
-    Number: {{count | async}}
-    <hr>
-    <button class="btn btn-success" (click)="onIncrement()">Increment</button>
-    <button class="btn btn-danger" (click)="onDecrement()">Decrement</button>
-    <button class="btn btn-secondary" (click)="onReset()">Reset</button>
-  </div>
+  <app-counting></app-counting>
 </div>
 

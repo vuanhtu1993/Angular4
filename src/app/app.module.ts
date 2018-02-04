@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import {StoreModule} from '@ngrx/store';
 import {counterReducer} from './redux/couter';
+import { CountingComponent } from './redux/counting/counting.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CountingComponent
   ],
   imports: [
     BrowserModule,
