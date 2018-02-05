@@ -18,28 +18,10 @@ export interface TodoPayLoad {
 
 export function todoReducer(state = [], action: ActionWithPayLoad<TodoPayLoad>) {
   switch (action.type) {
-    case ADD_TODO :
+    case ADD_TODO:
       return [
         ...state,
-        action.payload,
+        action.payload
       ];
-    case DELETE_TODO :
-      return state.filter((item, index) => {
-        return index !== action.payload.index;
-      });
-    case UPDATE_TODO:
-      return state.map((item, index) => {
-        return index === action.payload.index
-          ? Object.assign({}, item, {value: action.payload.newValue})
-          : item;
-      });
-    case TOGGLE_DONE:
-      return state.map((item, index) => {
-        return index === action.payload.index
-          ? Object.assign({}, item, {done: !action.payload.done})
-          : item;
-      });
-    default:
-      return state;
   }
 }
