@@ -1,0 +1,37 @@
+<h3>Search form</h3>
+
+<div>
+  <label for="search">Search</label>
+  <input type="text" id="search" [formControl]="searchForm">
+</div>
+
+<h3>Profile form</h3>
+<form [formGroup]="profileForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name">
+  <div *ngIf="profileForm.get('name').invalid && (profileForm.get('name').dirty || profileForm.get('name').touched)"
+       class="alert alert-danger">
+    <div *ngIf="profileForm.get('name').errors.required">
+      Name is required.
+    </div>
+    <div *ngIf="profileForm.get('name').errors.nameHeroTaken">
+      Name hero be exist
+    </div>
+  </div>
+  <br>
+  <label for="email">Email</label>
+  <input type="text" id="email" formControlName="email">
+  <div *ngIf="profileForm.get('email').invalid && (profileForm.get('email').dirty || profileForm.get('email').touched)"
+       class="alert alert-danger">
+    <div *ngIf="profileForm.get('email').errors.required">
+      Email is required.
+    </div>
+    <div *ngIf="profileForm.get('email').errors.email">
+      Email is invalid
+    </div>
+  </div>
+  <br>
+  <label for="age">Age:</label>
+  <input type="text" id="age" formControlName="age">
+</form>
+<p>{{profileForm.value | json}}</p>

@@ -42,13 +42,7 @@ export class ReactiveFormComponent implements OnInit {
       .subscribe((term) => {
         this.searches.push(term);
       });
-    // hero Form
     const nameHero = this.heroForm.get('nameHero');
-    // nameHero
-    //   .map()
-    //   .subscribe((value) => {
-    //   console.log(value);
-    // });
     console.log(nameHero.asyncValidator);
   }
 
@@ -60,12 +54,6 @@ export class ReactiveFormComponent implements OnInit {
     });
   }
 
-  // get email() {
-  //   return this.projectForm.get('email');
-  // }
-  // get projectName() {
-  //   return this.projectForm.get('projectName');
-  // }
   onClickUpdate() {
     if (this.projectForm.valid) {
       console.log(this.projectForm.value, this.projectForm.valid);
