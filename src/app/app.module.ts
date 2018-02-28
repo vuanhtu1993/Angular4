@@ -8,13 +8,15 @@ import {StoreModule} from '@ngrx/store';
 import {counterReducer} from './redux/couter';
 import { CountingComponent } from './redux/counting/counting.component';
 import {CurrencyModule} from './currency/currency.module';
+import { TodoComponent } from './todoApp/todo/todo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CountingComponent
+    CountingComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
