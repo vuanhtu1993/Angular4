@@ -5,10 +5,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import {StoreModule} from '@ngrx/store';
-import {counterReducer} from './redux/couter';
 import { CountingComponent } from './redux/counting/counting.component';
 import {CurrencyModule} from './currency/currency.module';
 import { TodoComponent } from './todoApp/todo/todo.component';
+import {TodoReducer} from './todoApp/store/todo.reducer';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -20,8 +21,10 @@ import { TodoComponent } from './todoApp/todo/todo.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({count: counterReducer}),
+    StoreModule.forRoot({todo: TodoReducer}),
     CurrencyModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

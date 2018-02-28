@@ -12,12 +12,6 @@ export class CountingComponent implements OnInit {
 
   count: Observable<number>;
   constructor(private store: Store<any>) {
-    this.count = this.store.pipe(select('count'));
-    console.log(this.count);
-    // this.store.subscribe((value) => {
-    //   this.count = value.count;
-    //   console.log(this.count);
-    // });
   }
   ngOnInit(): void {
   }

@@ -16,3 +16,5 @@ export class DoneTodo implements Action {
 export class DeleteTodo implements Action {
   type = DELETE_TODO;
 }
+
+export type todoAction = AddTodo | DoneTodo | DeleteTodo;

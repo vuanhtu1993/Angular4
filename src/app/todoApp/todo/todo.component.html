@@ -1,3 +1,15 @@
-<p>
-  todo works!
-</p>
+<h3 class="mt-5">Todo app</h3>
+<form [formGroup]="todoForm">
+  <label for="todo">Name</label>
+  <input type="text" id="todo" formControlName="name">
+  <label for="des">Description</label>
+  <input type="text" id="des" formControlName="description">
+  <button class="btn btn-outline-success" (click)="addTodo()">Add</button>
+</form>
+<p>{{todoForm.value | json}}</p>
+<ul *ngFor="let todo of todos.todos">
+  <li>{{todo.name}}</li>
+  <li>{{todo.description}}</li>
+  <li>{{todo.isDone}}</li>
+</ul>
+
