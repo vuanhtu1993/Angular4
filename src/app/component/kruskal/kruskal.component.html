@@ -1,0 +1,30 @@
+<h3>Kruskal algorithm</h3>
+<div class="form-group">
+  <label for="node1"> Node1
+    <input type="text" id="node1" class="form-inline" #node1>
+  </label>
+  <label for="node2"> Node2
+    <input type="text" id="node2" class="form-inline" #node2>
+  </label>
+  <label for="cost"> Cost
+    <input type="number" id="cost" class="form-inline" #cost>
+  </label>
+  <button class="btn btn-success" (click)="addEdge(node1, node2, cost)">Add</button>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <h4>Ds canh</h4>
+    <p *ngFor="let edge of edges">{{edge}}</p>
+  </div>
+  <div class="col-sm-4">
+    <h4>Ds Dinh</h4>
+    <p *ngFor="let node of nodes">{{node}}</p>
+  </div>
+  <div class="col-sm-4">
+    <h4>Result</h4>
+    <button class="btn btn-outline-danger" (click)="kruskal()">Kruskal</button>
+    <p *ngFor="let m of mst">{{m}}</p>
+  </div>
+</div>
+
+

@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
+import { KruskalComponent } from './component/kruskal/kruskal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    KruskalComponent
   ],
   imports: [
     BrowserModule
